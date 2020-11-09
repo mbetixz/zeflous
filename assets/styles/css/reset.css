@@ -1,0 +1,411 @@
+*,
+*:before,
+*:after,
+html
+{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-kerning: auto;
+	-webkit-tap-highlight-color:transparent;
+}
+html
+{
+	font-size: 10pt;
+	line-height: 1.4;
+	font-weight: 400;
+	-webkit-text-size-adjust: 100%;
+	font-family: 'Source Sans Pro', 'Open Sans', Roboto, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Myriad Pro', 'Segoe UI', Myriad, Helvetica, 'Lucida Grande', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, Arial, sans-serif;
+}
+a
+{
+	outline:none;
+	text-decoration:none;
+	color:#8AB9F0;
+}
+img
+{
+	display:inline-block;
+	vertical-align:middle;
+	max-width:100%;
+}
+ul,li
+{
+	list-style:none;
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+input[type="text"],
+input[type="password"],
+select,
+textarea
+{
+	width:100%;
+	max-width:100%;
+	background-color:transparent;
+	border:0;
+	border-bottom:3px solid rgba(0,0,0,.2);
+	outline-color:transparent;
+}
+p,h1,h2,h2,h4,h5,h6
+{
+	margin:auto;
+}
+body
+{
+	background-color:#282933;
+	color:#d5d7ec;
+	padding:0;
+	margin:auto;
+}
+.backdrop
+{
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	z-index:1002;
+	background-color:rgba(0,0,0,.1);
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-ms-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+}
+
+/** error page **/
+section.error-page
+{
+	position:relative;
+	margin:20px auto;
+	max-width: 90%;
+	text-align:center;
+}
+section.error-page h1
+{
+	font-size:1000%;
+	color: #f25661;
+	padding:0;
+	margin:auto;
+	text-shadow:5px 5px 0 rgba(0,0,0,.5);
+}
+section.error-page p
+{
+	padding:15px;
+	text-shadow:0 1px 0 rgba(0,0,0,.5);
+}
+
+/**
+* Simple input box validation animation without javascript
+**/
+[plugin=input-box]
+{
+	position:relative;
+	padding-top:26px;
+	margin-bottom:10px;
+	overflow:hidden;
+}
+[plugin=input-box] > label
+{
+	position:absolute;
+	bottom:0; left:0; right:0;
+	line-height:26px;
+	pointer-events:none;
+	color: #414953;
+	font-size:90%;
+	padding-bottom:3px;
+	-webkit-transition: color .3s ease-in-out, padding-bottom .3s ease-in-out;
+	-moz-transition: color .3s ease-in-out, padding-bottom .3s ease-in-out;
+	-ms-transition: color .3s ease-in-out, padding-bottom .3s ease-in-out;
+	-o-transition: color .3s ease-in-out, padding-bottom .3s ease-in-out;
+	transition: color .3s ease-in-out, padding-bottom .3s ease-in-out;
+}
+[plugin=input-box] > input,
+[plugin=input-box] > select,
+[plugin=input-box] > textarea
+{
+	line-height:26px;
+	color:#acc7ed;
+}
+[plugin=input-box] > select
+{
+	-webkit-appearance:textfield;
+	-moz-appearance:textfield;
+	appearance:textfield;
+}
+[plugin=input-box] > input:disabled,
+[plugin=input-box] > select:disabled,
+[plugin=input-box] > select option:disabled,
+[plugin=input-box] > textarea:disabled
+{
+	color:rgba(122,199,237,.3);
+}
+[plugin=input-box] > input:required + label:before,
+[plugin=input-box] > select:required + label:before,
+[plugin=input-box] > textarea:required + label:before
+{
+	position:absolute;
+	bottom:1px; right:100%; left:0;
+	border-bottom:3px solid #9a3758;
+	content:'';
+	-webkit-transition:border-color 1s ease-in-out, right .3s ease-in-out;
+	-moz-transition:border-color 1s ease-in-out, right .3s ease-in-out;
+	-ms-transition:border-color 1s ease-in-out, right .3s ease-in-out;
+	-o-transition:borde-color 1s ease-in-out, right .3s ease-in-out;
+	transition:border-color 1s ease-in-out, right .3s ease-in-out;
+}
+[plugin=input-box] > input:focus + label,
+[plugin=input-box] > select:focus + label,
+[plugin=input-box] > textarea:focus + label,
+[plugin=input-box] > input:required:valid + label,
+[plugin=input-box] > select:required:valid + label,
+[plugin=input-box] > textarea:required:valid + label,
+[plugin=input-box] > input:not(:placeholder-shown) + label,
+[plugin=input-box] > select:not(:empty) + label,
+[plugin=input-box] > textarea:not(:empty) + label
+{
+	color:#718eb3;
+	padding-bottom:26px;
+}
+[plugin=input-box] > input:not(:placeholder-shown):focus:invalid + label:before,
+[plugin=input-box] > select:not(:placeholder-shown):focus:invalid + label:before,
+[plugin=input-box] > textarea:not(:placeholder-shown):focus:invalid + label:before
+{
+	right:50%;
+}
+[plugin=input-box] > input:required:valid + label:before,
+[plugin=input-box] > select:required:valid + label:before,
+[plugin=input-box] > textarea:required:valid + label:before
+{
+	border-bottom-color:#496dbc;
+	right:0;
+}
+[plugin=input-box][error=true] > input:not([value=""]) + label:before
+{
+	border-bottom-color:red;
+}
+[plugin=input-box] + [plugin=input-box-desc]
+{
+	display:block;
+	margin-top: -8px;
+	font-size:75%;
+	color:#414953;
+}
+[plugin=input-box][error=true] + [plugin=input-box-desc]
+{
+	color:red;
+}
+[plugin=input-box] > .help
+{
+	position:absolute;
+	//display:none;
+	bottom:-100%; right:0;
+	background-color: #31353c;
+	border:1px solid #212327;
+	border-radius:5px;
+	padding: 5px 10px;
+	font-size:10px;
+	pointer-events:none;
+	-webkit-transition:bottom .4s ease-in-out;
+	-moz-transition:bottom .4s ease-in-out;
+	transition:bottom .4s ease-in-out;
+}
+[plugin=input-box] > .help:before,
+[plugin=input-box] > .help:after
+{
+	position:absolute;
+	bottom:-15px;right:5px;
+	content:'';
+	border:7px solid transparent;
+	border-top-color: #212327;
+}
+[plugin=input-box] > .help:after
+{
+	bottom:-13px;
+	border-top-color:#31353c;
+}
+[plugin=input-box] > textarea:focus + label + .help
+[plugin=input-box] > select:focus + label + .help,
+[plugin=input-box] > input:focus + label + .help
+{
+	bottom:26px;
+	display:block;
+}
+
+/** button **/
+button
+{
+	position: relative;
+	z-index: 1;
+	overflow: visible;
+	display: inline-block;
+	padding: 0 .85em;
+	border: 1px solid #999;
+	border-bottom-color: #888;
+	margin: 0;
+	text-decoration: none;
+	text-align: center;
+	font: bold 12px/normal 'lucida grande', tahoma, verdana, arial, sans-serif;
+	white-space: nowrap;
+	cursor: pointer;
+	outline: none;
+	color: #333;
+	background-color: #eee;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f3f4f5), to(#e4e4e3));
+	background-image: -moz-linear-gradient(#f3f4f5, #e4e4e3);
+	background-image: -o-linear-gradient(#f3f4f5, #e4e4e3);
+	background-image: linear-gradient(#f3f4f5, #e4e4e3);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f3f4f5', EndColorStr='#e4e4e3'); /* for IE 6 - 9 */
+	-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), inset 0 1.5px 0 #fff;
+	-moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), inset 0 1.5px 0 #fff;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), inset 0 1.5px 0 #fff;
+	text-shadow:1px 1px 0 #f6f7f8;
+	line-height:24px;
+	padding-top:2px;
+	border-radius:3px;
+	/* IE hacks */
+	zoom: 1;
+	*display: inline;
+}
+button:hover,
+button:focus,
+button:active
+{
+	border-color: #777 #777 #666;
+}
+button:active
+{
+	border-color: #ccc;
+	background: #ddd;
+	filter: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+/* overrides extra padding on button elements in Firefox */
+button::-moz-focus-inner
+{
+	padding:0;
+	border:0;
+}
+button.confirm
+{
+	border-color: #353f53 #2e3748 #29313f;
+	color: #fff;
+	background-color: #435478;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#435478), to(#5872a7));
+	background-image: -moz-linear-gradient(#435478, #5872a7);
+	background-image: -o-linear-gradient(#435478, #5872a7);
+	background-image: linear-gradient(#435478, #5872a7);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#435478', EndColorStr='#5872a7'); /* for IE 6 - 9 */
+	-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1.5px 0 #4a6a90;
+	-moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1.5px 0 #4a6a90;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1.5px 0 #4a6a90;
+	text-shadow:1px 1px 0 #313742;
+}
+button.confirm:active
+{
+	border-color: #353f53;
+	background: #4F6AA3;
+	filter: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+button.success
+{
+	border-color: #0d6d43 #0a683f #0b5937;
+	color: #fff;
+	background-color: #208f66;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2a7c53), to(#1d9f5e));
+	background-image: -moz-linear-gradient(#2a7c53, #1d9f5e);
+	background-image: -o-linear-gradient(#2a7c53, #1d9f5e);
+	background-image: linear-gradient(#2a7c53, #1d9f5e);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#2a7c53', EndColorStr='#1d9f5e'); /* for IE 6 - 9 */
+	-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1.5px 0 #2f8f57;
+	-moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1.5px 0 #2f8f57;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1.5px 0 #2f8f57;
+	text-shadow:1px 1px 0 #194d1b;
+}
+button.success:active
+{
+    border-color: #0d6d43;
+    background: #208f66;
+    filter: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+button.block
+{
+	display:block;
+	width:70%;
+	line-height:32px;
+	margin:5px auto;
+}
+button.radius50
+{
+	border-radius: 16px;
+}
+button.radius50.block,
+button.block.radius50
+{
+	border-radius: 20px;
+}
+button.link
+{
+	background-color:transparent;
+	background-image:none;
+	border:0;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+	text-shadow:none;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+	color:#8AB9F0;
+	cursor:pointer;
+}
+
+/** progressbar **/
+.progress
+{
+	background-color:#e5e9eb;
+	height:0.25em;
+	position:relative;
+	position:fixed;
+	top:51px;left:0;right:0;
+	z-index:999;
+	width:100%;
+}
+.progress-bar
+{
+	animation-duration:3s;
+	animation-name:progressbar;
+	background-image:linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+	background-size:100% 0.25em;
+	height:100%;
+	position:relative;
+}
+.progress-shadow
+{
+	background-image:linear-gradient(to bottom, rgba(0,0,0,.1), transparent);
+	height:2em;
+	position: absolute;
+	top: 100%;
+	transform: skew(45deg);
+	transform-origin: 0 0;
+	width: 100%;
+}
+@keyframes progressbar
+{
+	0%, 100% {transition-timing-function: cubic-bezier(1, 0, 0.65, 0.85)}
+	0% {width:0}
+	100% {width:100%;display:none}
+}

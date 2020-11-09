@@ -1,0 +1,55 @@
+{
+    "name": "mbetixz/zeflous",
+    "description": "Open Source Content Management System",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mbetixz",
+            "email": "mbetixz93@gnail.com",
+            "homepage": "http://github.com/mbetixz",
+            "role": "I don't know what is"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "vendor-dir": "system/vendor",
+        "optimize-autoloader": true,
+        "github-protocols": ["https"],
+        "archive-format": "zip",
+        "sort-packages": true
+    },
+    "require-dev": {
+    },
+    "require": {
+        "php": "^7.2",
+        "ext-gd": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-pdo": "*",
+        "ext-simplexml": "*",
+        "ext-zip": "*",
+        "defuse/php-encryption": "^2.2",
+        "egulias/email-validator": "^2.1",
+        "guzzlehttp/psr7": "^1.7",
+        "laminas/laminas-httphandlerrunner": "^1.2",
+        "phpaes/phpaes": "^3.1",
+        "smarty/smarty": "^3.1",
+        "swiftmailer/swiftmailer": "^6.2",
+        "usmanhalalit/pixie": "^2.0",
+        "voku/arrayy": "^7.8",
+        "voku/html-min": "^4.4"
+    },
+    "autoload": {
+        "files": [
+            "system/configs/system/constants.php",
+            "system/kernel/helpers.php",
+            "system/kernel/autoload.php"
+        ],
+        "psr-4": {
+            "System\\": "system/kernel/classes",
+            "System\\Plugin\\": "system/kernel/plugins"
+        }
+    }
+}
