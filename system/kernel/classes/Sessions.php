@@ -37,6 +37,9 @@ use System\Tools\Cryptor;
 
 class Sessions
 {
+	/**
+	 * @trait System\Tools\Cryptor
+	 */
 	use Cryptor;
 
 	/**
@@ -108,15 +111,29 @@ class Sessions
 		return false;
 	}
 
+	/**
+	 * Create session token
+	 *
+	 * @param string|int {$str}
+	 *
+	 * @return string
+	 */
 	public function createToken($str=null): string
 	{
 		if (null === $str)
 			$str = random_int(0, 999999);
 		$this->set("token", "token.{$str}");
-		return $str;
+		return (string) $str;
 	}
 
-	public function validToken($token): bool
+	/**
+	 * validate token
+	 *
+	 * @param string {$string}
+	 *
+	 * @return bool
+	 */
+	public function validToken(string $token): bool
 	{
 		if ($session = $this->get("token")) /** if token exists **/
 			if (preg_match("#/?(token([\.])([0-9]{4,9}))/?#s", $session)) /** validate sessions first before compare **/
@@ -124,4 +141,5 @@ class Sessions
 					return true;
 		return false;
 	}
+
 }

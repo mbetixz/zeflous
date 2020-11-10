@@ -45,15 +45,16 @@ extends ServerRequest
 {
 
 	/**
-	* Return a ServerRequest populated with superglobals:
-	* $_GET
-	* $_POST
-	* $_COOKIE
-	* $_FILES
-	* $_SERVER
-	*
-	* @return ServerRequestInterface
-	*/
+	 * Return a ServerRequest populated with superglobals:
+	 *
+	 * $_GET
+	 * $_POST
+	 * $_COOKIE
+	 * $_FILES
+	 * $_SERVER
+	 *
+	 * @return ServerRequestInterface
+	 */
 	public static function fromGlobals()
 	{
 		$method        = $_SERVER['REQUEST_METHOD'] ?? 'GET';
@@ -70,59 +71,73 @@ extends ServerRequest
 	}
 
 	/**
-	* @param string $name
-	* @param null|mixed $default
-	* @param int $filter
-	* @param mixed $options
-	* @return mixed|null
-	*/
+	 * Get Query String from uri
+	 *
+	 * @param string {$name}
+	 * @param null|mixed {$default}
+	 * @param int {$filter}
+	 * @param mixed {$options}
+	 *
+	 * @return mixed|null
+	 */
 	public function getQuery(string $name, $default = null, int $filter = FILTER_DEFAULT, $options = null)
 	{
 		return $this->filterVar($name, $this->getQueryParams(), $filter, $options) ?? $default;
 	}
+
 	/**
-	* @param string $name
-	* @param null|mixed $default
-	* @param int $filter
-	* @param mixed $options
-	* @return mixed|null
-	*/
+	 * Get request post
+	 *
+	 * @param string {$name}
+	 * @param null|mixed {$default}
+	 * @param int {$filter}
+	 * @param mixed {$options}
+	 *
+	 * @return mixed|null
+	 */
 	public function getPost(string $name, $default = null, int $filter = FILTER_DEFAULT, $options = null)
 	{
 		return $this->filterVar($name, $this->getParsedBody(), $filter, $options) ?? $default;
 	}
 
 	/**
-	* @param string $name
-	* @param null|mixed $default
-	* @param int $filter
-	* @param mixed $options
-	* @return mixed|null
-	*/
+	 * Get cookie
+	 *
+	 * @param string {$name}
+	 * @param null|mixed {$default}
+	 * @param int {$filter}
+	 * @param mixed {$options}
+	 *
+	 * @return mixed|null
+	 */
 	public function getCookie(string $name, $default = null, int $filter = FILTER_DEFAULT, $options = null)
 	{
 		return $this->filterVar($name, $this->getCookieParams(), $filter, $options) ?? $default;
 	}
 
 	/**
-	* @param string $name
-	* @param null|mixed $default
-	* @param int $filter
-	* @param mixed $options
-	* @return mixed|null
-	*/
+	 *
+	 * @param string {$name}
+	 * @param null|mixed {$default}
+	 * @param int {$filter}
+	 * @param mixed {$options}
+	 *
+	 * @return mixed|null
+	 */
 	public function getServer(string $name, $default = null, int $filter = FILTER_DEFAULT, $options = null)
 	{
 		return $this->filterVar($name, $this->getServerParams(), $filter, $options) ?? $default;
 	}
 
 	/**
-	* @param string $key
-	* @param mixed $var
-	* @param int $filter
-	* @param mixed $options
-	* @return mixed|null
-	*/
+	 * filter string
+	 * @param string {$key}
+	 * @param mixed {$var}
+	 * @param int {$filter}
+	 * @param mixed {$options}
+	 *
+	 * @return mixed|null
+	 */
 	private function filterVar(string $key, $var, int $filter, $options)
 	{
 		if (is_array($var) && isset($var[$key]))
@@ -136,9 +151,11 @@ extends ServerRequest
 	}
 
 	/**
-	* @param array $remove_params
-	* @return string
-	*/
+	 *
+	 * @param array $remove_params
+	 *
+	 * @return string
+	 */
 	public function getQueryString(array $remove_params = []): string
 	{
 		$query_params = $this->getQueryParams();
@@ -148,4 +165,5 @@ extends ServerRequest
 		}	$str = http_build_query($query_params);
 		return $this->getUri()->getPath() . (! empty($str) ? '?' . $str : '');
 	}
+
 }

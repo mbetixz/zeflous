@@ -36,6 +36,13 @@ namespace System\Http\Router;
 trait Parser
 {
 
+	/**
+	 * Parse / Format standart configurations
+	 *
+	 * @param array {$routes}
+	 *
+	 * @return array
+	 */
 	private function parseRoutes(array $routes): array
 	{
 		$newRoutes = array();
@@ -55,7 +62,15 @@ trait Parser
 		};	return $newRoutes;
 	}
 
-	private function parseSectionRoutes($index, $routes): array
+	/**
+	 * Format section configurations
+	 *
+	 * @param string {$index}
+	 * @param array {$routes}
+	 *
+	 * @return array
+	 */
+	private function parseSectionRoutes(string $index, array $routes): array
 	{
 		$section = array();
 		if ($def = config('system.default module'))
@@ -67,12 +82,12 @@ trait Parser
 			$uri        = $val[0];
 			$controller = $val[1];
 			$method     = isset($val[2]) ? $val[2] : ["GET"];
-			//
+			/** comparing default module **/
 			if ($index != $default)
 			{
 				$uri  = DS . $index . DS . ltrim($uri, "/");
 			}
-			//
+			/** clean end slash **/
 			$uri = rtrim($uri, "/");
 			$uri = $this->convertRegex($uri);
 			$uri = empty($uri) ? "/" : $uri;
@@ -87,6 +102,14 @@ trait Parser
 		};	return $section;
 	}
 
+	/**
+	 * Format controller to array
+	 *
+	 * @param array|string {$controller}
+	 * @param string {$module}
+	 *
+	 * @return array
+	 */
 	private function formatController($controller, string $module): array
 	{
 		$namespace = "Controller\\" . ucfirst($module) . "\\";
@@ -96,10 +119,17 @@ trait Parser
 				return ['class' => $namespace . $class, 'method' => $method];
 		elseif (is_array($controller) && count($controller) == 2 && isset($controller[0]) && isset($controller[1]))
 			return ['class' => $namespace . $controller[0], 'method' => $controller[1]];
-		else
+		else /** undefined classname **/
 			return ["class" => "UNKNOWN", "method" => "UNDEFINED"];
 	}
 
+	/**
+	 * Format request method to array
+	 *
+	 * @param array|string {$method}
+	 *
+	 * @return array
+	 */
 	private function formatMethod($method): array
 	{
 		if (is_array($method))
@@ -111,6 +141,13 @@ trait Parser
 		}, $method);
 	}
 
+	/**
+	 * Replace uri to regex format
+	 *
+	 * @param string {$uri}
+	 *
+	 * @return string
+	 */
 	private function convertRegex(string $uri): string
 	{
 		if ($router = config('router'))

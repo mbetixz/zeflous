@@ -41,15 +41,33 @@ class App
 implements AppInterface
 {
 	private static
+
+	/**
+	 * Current Static Container
+	 *
+	 * @var array
+	 */
 	$container = [],
+
+	/**
+	 * Queue Container events
+	 *
+	 * @var array
+	 */
 	$events    = [],
+
+	/**
+	 * Current Module
+	 *
+	 * @var string|null
+	 */
 	$current_module;
 
 	/**
-	* Constructur
-	* Parse array container, static, events config
-	* @param array | $config | autoload.php
-	**/
+	 * Constructur
+	 *
+	 * @param array {$config}
+	 */
 	public function __construct(array $config)
 	{
 		foreach($config as $type => $value)
@@ -92,6 +110,13 @@ implements AppInterface
 			};
 	}
 
+	/**
+	 * get static container if exists or create new
+	 *
+	 * @param string {$class}
+	 *
+	 * @return object
+	 */
 	public static function get(string $class)
 	{
 		if (isset(self::$container[$class]))
@@ -102,17 +127,30 @@ implements AppInterface
 			return _error("Error: Object for {$class} was not found!!");
 	}
 
-	public static function set(string $key, object $class)
+	/**
+	 * Set/Add static container
+	 *
+	 * @param string {$alias}
+	 * @paeam object {$object}
+	 *
+	 * @return mixed
+	 */
+	public static function set(string $alias, object $class)
 	{
-		/** check if given key already exists**/
-		if (isset(self::$container[$key]))
-			return _error("Error: Container key {$key} already exists!!");
+		/** check if given alias key already exists**/
+		if (isset(self::$container[$alias]))
+			return _error("Error: Container key {$alias} already exists!!");
 		elseif (isset(self::$container[get_class($class)]))
 			return _error("Error: Container object for ".get_class($class)." already exists!!");
 		else
-			return self::$container[$key] = $class;
+			return self::$container[$alias] = $class;
 	}
 
+	/**
+	 * dump current static container & events
+	 *
+	 * @return array
+	 */
 	public static function getInfo(): array
 	{
 		return
@@ -122,7 +160,14 @@ implements AppInterface
 		];
 	}
 
-	public static function getReferer(int $history = 1):string
+	/**
+	 * get referer where function called from
+	 *
+	 * @param int {$history}
+	 *
+	 * @return string
+	 */
+	public static function getReferer(int $history = 1): string
 	{
 		/** get referer class by Exception **/
 		$ref  = new Exception();
@@ -141,11 +186,19 @@ implements AppInterface
 		return $location;
 	}
 
+	/**
+	 * Register current module to other class
+	 *
+	 * @param string {$module}
+	 *
+	 * @return none|string
+	 */
 	public static function register(string $module)
 	{
 		$dir = APP_MODULE_PATH . $module . DS;
 		if (is_dir($dir))
 		{
+			self::$current_module = $module;
 			/** Languages Path **/
 			App::get(Languages::class)->set("ext_dir", $dir . 'components' . DS . 'locales' . DS);
 			/** Template view based on config's view **/
@@ -160,6 +213,14 @@ implements AppInterface
 			return _error("Error: Unable to register moduule \"{$module}\", module directory does not exists!!");
 	}
 
+	/**
+	 * Auto resolve given request containee class if posible
+	 *
+	 * @param string {$class}
+	 * @param string|null {$alias}
+	 *
+	 * @return object
+	 */
 	private static function getResolve(string $class, string $alias = null)
 	{
 		$reflection = new ReflectionClass($class);
@@ -183,6 +244,13 @@ implements AppInterface
 		return self::$container[$name];
 	}
 
+	/**
+	 * Get default property dependency(s)
+	 *
+	 * @param array {$params}
+	 *
+	 * @return array
+	 **/
 	private static function getDependencies(array $params): array
 	{
 		$dependencies = [];

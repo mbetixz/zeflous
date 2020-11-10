@@ -38,11 +38,11 @@ use System\{
 
 
 /**
-* Config helper
-* config('parent.section.child');
-* config('parent:section:child');
-* config('parent->section->child');
-**/
+ * Config helper
+ * config('parent.section.child');
+ * config('parent:section:child');
+ * config('parent->section->child');
+ */
 function config(string $key, $value=null)
 {
 	if (null === $value)
@@ -52,16 +52,31 @@ function config(string $key, $value=null)
 }
 
 /**
-* Error View
-**/
+ * Custom timezone & timeshift
+ */
+function _time()
+{
+	static $timeshift = 0;
+	if ($zone = config('system.time zone'))
+		ini_set("date.timezone", $zone);
+	if ($extra = config('system.time shift'))
+		$timesift = $extra;
+	return time() + $extra;
+}
+
+/**
+ * Error View
+ */
 function _error($error, $prev = 1, $file=true, $exit = false)
 {
-	/** hidden error if DEBUG is disable **/
+	/**
+	 * hidden error if DEBUG is disable
+	 */
 	if (APP_DEBUG)
 	{
 		/**
-		* trying create an logic for including style for first time only
-		**/
+		 * trying create an logic for including style for first time only
+		 */
 		$already = false;
 		if (! isset($GLOBALS["error"]))
 			$GLOBALS["error"] = 1;
@@ -89,13 +104,13 @@ function _error($error, $prev = 1, $file=true, $exit = false)
 }
 
 /**
-* variable(s) dump
-**/
+ * variable(s) dump
+ */
 function dump($var)
 {
 	/**
-	* trying create an logic for including style for first time only
-	**/
+	 * trying create an logic for including style for first time only
+	 */
 	$already = false;
 	if (! isset($GLOBALS["error"]))
 		$GLOBALS["error"] = 1;

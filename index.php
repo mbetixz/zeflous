@@ -32,8 +32,8 @@
  * @license    http://opensource.org/licenses/MIT MIT License
  */
 /**
-define("APP_START", microtime(true));
-**/
+ * define("APP_START", microtime(true));
+ */
 use System\Http\Router;
 use System\Controller\Main;
 
@@ -43,11 +43,11 @@ $request = new Router();
 $match   = $request->route();
 
 /**
-* dump($match) for info
-* [0] ROUTER STATUS
-* [1] RESULT
-* [2] DEBUG VARIABLES
-**/
+ * dump($match) for info
+ * [0] ROUTER STATUS
+ * [1] RESULT
+ * [2] DEBUG VARIABLES
+ */
 switch($match[0])
 {
 	case $request::FOUND:

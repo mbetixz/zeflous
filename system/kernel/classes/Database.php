@@ -42,30 +42,53 @@ use Pixie\{
 
 class Database
 {
+	/**
+	 * @object Pixie\QueryBuilder\QueryBuilderHandler
+	 */
 	private static $db;
 
+	/**
+	 * {@inheritdoc}
+	 */
 	public function __construct()
 	{
 		if (null === self::$db)
 			self::$db = $this->connect();
 	}
-	
-	public function __invoke($data=null)
+
+	/**
+	 * self object
+	 *
+	 * @param bool|string
+	 *
+	 * @return object
+	 */
+	public function __invoke($data = null)
 	{
 		return $this;
-		
 	}
 
+	/**
+	 * {@inheritdoc}
+	 */
 	public function __call($method, $args)
 	{
 		return call_user_func_array([self::$db, $method], $args);
 	}
 
+	/**
+	 * {@inheritdoc}
+	 */
 	public static function __callStatic($method, $args)
 	{
 		return call_user_func_array([self::$db, $method], $args);
 	}
 
+	/**
+	 * Connect to database
+	 *
+	 * @return object
+	 */
 	private function connect(): QueryBuilderHandler
 	{
 		if (!config('database'))

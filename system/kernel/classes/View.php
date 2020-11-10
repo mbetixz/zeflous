@@ -38,12 +38,23 @@ use Smarty_Autoloader;
 
 class View
 {
-	/** @var Smarty::class **/
+
+	/**
+	 * @object Smarty::class
+	 */
 	private static $smarty;
 
-	/** @var extends view **/
+	/**
+	 * @bool extends view
+	 */
 	private $extends;
 
+	/**
+	 * Constructor
+	 *
+	 * @param object $autoloader
+	 * @param object $smarty
+	 */
 	public function __construct(Smarty_Autoloader $autoloader, Smarty $smarty)
 	{
 		if (config('view'))
@@ -81,23 +92,48 @@ class View
 		}	unset($autoloader, $smarty);
 	}
 
+	/**
+	 * Smarty Object
+	 *
+	 * @return object
+	 */
 	public function smarty(): Smarty
 	{
 		return self::$smarty;
 	}
 
+	/**
+	 * Extends View
+	 *
+	 * @return object
+	 */
 	public function extends(): self
 	{
 		$this->extends = true;
 		return $this;
 	}
 
+	/**
+	 * Assign variable(s)
+	 *
+	 * @param array {$vars}
+	 *
+	 * @return object
+	 */
 	public function assign(array $vars): self
 	{
 		$this->smarty()->assign($vars);
 		return $this;
 	}
 
+	/**
+	 * Render/Display view
+	 *
+	 * @param string {$name}
+	 * @param array {$assign}
+	 *
+	 * @return mixed
+	 */
 	public function render(string $name, array $assign = [])
 	{
 		/** path:name -> path/name **/
@@ -113,4 +149,5 @@ class View
 		} else
 			return _error("Error: Unable to load template file {$name}!");
 	}
+
 }

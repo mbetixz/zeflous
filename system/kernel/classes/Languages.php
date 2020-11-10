@@ -42,15 +42,52 @@ use System\{
 
 class Languages
 {
-	protected
-		$dir,
-		$iso,
-		$fallback,
-		$ext,
-		$data = [];
-	public
-		$ext_dir;
 
+	protected
+	/**
+	 * Default path
+	 *
+	 * @var string
+	 */
+	$dir,
+	/**
+	 * Default iso
+	 *
+	 * @var string
+	 */
+	$iso,
+	/**
+	 * language fallback
+	 *
+	 * @var bool
+	 */
+	$fallback,
+	/**
+	 * extension
+	 *
+	 * @var string
+	 */
+	$ext,
+	/**
+	 * languages data
+	 *
+	 * @var array
+	 */
+	$data = [];
+
+	public
+	/**
+	 * external path
+	 *
+	 * @var string
+	 */
+	$ext_dir;
+
+	/**
+	 * Constructor
+	 *
+	 * @param object {$user}
+	 */
 	public function __construct(User $user)
 	{
 		$this->dir = config('languages.path');
@@ -66,6 +103,14 @@ class Languages
 			$this->import(config('languages.name'));
 	}
 
+	/**
+	 * Set property
+	 *
+	 * @param string {$key}
+	 * @param mixed {$value}
+	 *
+	 * @return bool
+	 */
 	public function set(string $key, string $value): bool
 	{
 		$allow = false;
@@ -83,6 +128,14 @@ class Languages
 		}	return $allow;
 	}
 
+	/**
+	 * Import language file
+	 *
+	 * @param string {$name}
+	 * @param bool {$return}
+	 *
+	 * @return array|none
+	 */
 	public function import(string $name, $return = false)
 	{
 		if ($lng = App::get(Tools::class)->LoadFile($this->dir . $this->iso . DS . $name . $this->ext))
@@ -103,4 +156,5 @@ class Languages
 				$this->data[$name] = $data;
 		}
 	}
+
 }

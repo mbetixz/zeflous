@@ -35,6 +35,14 @@ namespace System\Tools;
 
 trait IncludeFile
 {
+
+	/**
+	 * Safe include file
+	 *
+	 * @param string {$file}
+	 *
+	 * @return array
+	 */
 	protected function IncludeFile(string $file): array
 	{
 		if (is_file($file))
@@ -42,4 +50,5 @@ trait IncludeFile
 		else
 			return [];
 	}
+
 }

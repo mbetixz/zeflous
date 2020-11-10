@@ -42,7 +42,9 @@ else
 	require(__DIR__ . '/vendor/autoload.php');
 }
 
-/** Show all error if dubug enabled **/
+/**
+ * Show all error if debug enabled
+ */
 if (APP_DEBUG)
 {
 	error_reporting(E_ALL);
@@ -54,9 +56,10 @@ if (APP_DEBUG)
 	ini_set('display_errors', 'Off');
 	ini_set('log_errors', 'Off');
 }
+
 /**
-* Compression
-**/
+ * Compression
+ */
 if (extension_loaded('zlib') && ! ini_get('zlib.output_compression'))
 	ob_start('ob_gzhandler');
 else
@@ -64,8 +67,8 @@ else
 	ob_start();
 }
 /**
-* Check if class & config was loaded
-**/
+ * Check if class & config was loaded
+ */
 if (
 	file_exists($autoload = APP_CONFIG_PATH . 'system/autoload.php') &&
 	class_exists('System\App')

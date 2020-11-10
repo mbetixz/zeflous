@@ -33,20 +33,36 @@
  */
 namespace System;
 
-use Arrayy\Arrayy;
 use System\{
 	Cache,
 	Config\Data,
 	Tools
 };
+
 class Config
 {
 	public
-		$cache,
-		$tools;
-	private
-		$config;
+	/**
+	 * @object System\Cache::class
+	 */
+	$cache,
+	/**
+	 * @object System\Tools::class
+	 */
+	$tools;
 
+	private
+	/**
+	 * @object System\Config\Data::class
+	 */
+	$config;
+
+	/**
+	 * Constructor
+	 *
+	 * @param object {$tools}
+	 * @param object {$cache}
+	 */
 	public function __construct(Tools $tools, Cache $cache)
 	{
 		$this->tools = $tools;
@@ -73,16 +89,33 @@ class Config
 					}
 				}
 			}	return $config;
-		};
-		$this->config = new Data($config($this));
+		};	$this->config = new Data($config($this));
 	}
 
-	public function __invoke($data=null)
+	/**
+	 * get config data / object by invoke
+	 *
+	 * @param string {$data}
+	 *
+	 * return array|object
+	 */
+	public function __invoke(string $data = null)
 	{
-		return $this->config;
+		if (null === $data)
+			return $this->config;
+		else
+			return $this->config->get($data);
 	}
 
-	public function load(string $name, $path = APP_CONFIG_PATH)
+	/**
+	 * load config file
+	 *
+	 * @param string {$name}
+	 * @param string {$path}
+	 *
+	 * @return array|bool
+	 */
+	public function load(string $name, string $path = APP_CONFIG_PATH)
 	{
 		$name  = trim(str_replace(":", DS, $name));
 		if ($cache = $this->cache->LoadCache($name))
@@ -97,11 +130,24 @@ class Config
 		return $config;
 	}
 
+	/**
+	 * Get config data
+	 *
+	 * @param string {$key}
+	 *
+	 * @return array|string
+	 */
 	public function get(string $key)
 	{
 		return $this()->get($key);
 	}
 
+	/**
+	 * Set config data
+	 *
+	 * @param string $key
+	 * @param array|string
+	 */
 	public function set(string $key, $value)
 	{
 		return $this()->set($key, $value);

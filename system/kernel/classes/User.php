@@ -40,6 +40,13 @@ use System\{
 
 class User
 {
+
+	/**
+	 * Constructor
+	 *
+	 * @param object $session
+	 * @param object $db
+	 */
 	public function __construct(Sessions $session, Database $db)
 	{
 		/** SESSION **/
@@ -66,11 +73,21 @@ class User
 		}	unset($session);
 	}
 
+	/**
+	 * User Settings
+	 *
+	 * @return object
+	 */
 	public function settings()
 	{
 		return App::get(Settings::class);
 	}
 
+	/**
+	 * Check if user is valid
+	 *
+	 * @return bool
+	 */
 	public function isValid()
 	{
 		return property_exists($this, 'id');

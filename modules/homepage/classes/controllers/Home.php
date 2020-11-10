@@ -33,10 +33,20 @@
  */
 namespace Controller\Homepage;
 
+use System\{
+	App,
+	View
+};
+
 class Home
 {
 	public function index()
 	{
-		return "Welcome";
+		return App::get(View::class)
+			->extends()
+			->render(
+				'index',
+				[]
+			);
 	}
 }

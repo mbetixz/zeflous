@@ -41,14 +41,51 @@ use System\{
 
 class Settings
 {
-	/** Default Settings **/
+	/**
+	 * Default User Settings
+	 */
 	public
+
+	/**
+	 * Current User ID
+	 *
+	 * @var int|null
+	 */
 	$id,
+
+	/**
+	 * User theme
+	 *
+	 * @var string|null
+	 */
 	$theme,
+
+	/**
+	 * Extra timeshift
+	 *
+	 * @var int
+	 */
 	$timeshift = 0,
+
+	/**
+	 * Current Language
+	 *
+	 * @var string|null
+	 */
 	$locale,
+
+	/**
+	 * Item per page
+	 *
+	 * @var int
+	 */
 	$page = 10;
 
+	/**
+	 * Constructor
+	 *
+	 * @param object System\User {$user}
+	 */
 	public function __construct(User $user)
 	{
 		if ($user->isValid())
@@ -71,6 +108,13 @@ class Settings
 		}
 	}
 
+	/**
+	 * Get user property
+	 *
+	 * @var string {$key}
+	 *
+	 * @return mixed
+	 */
 	public function get(string $key)
 	{
 		if (property_exists($this, $key))

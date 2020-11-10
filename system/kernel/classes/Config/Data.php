@@ -44,18 +44,22 @@ class Data
 implements DataInterface, ArrayAccess
 {
 
+	/**
+	 * Rules string delimiters
+	 */
 	private const DELIMITERS = ['.', '->', ":"];
-    /**
+
+	/**
      * Internal representation of data data
      *
-     * @var array<string, mixed>
+     * @var array{string, mixed}
      */
     protected $data;
 
     /**
      * Constructor
      *
-     * @param array<string, mixed> $data
+     * @param array{string, mixed} $data
      */
     public function __construct(array $data = [])
     {
@@ -63,6 +67,8 @@ implements DataInterface, ArrayAccess
     }
 
     /**
+	 * Add an array
+	 *
      * {@inheritdoc}
      */
     public function append(string $key, $value = null): void
@@ -73,23 +79,16 @@ implements DataInterface, ArrayAccess
         foreach ($keyPath as $currentKey)
 		{
             if (! isset($currentValue[$currentKey]))
-			{
                 $currentValue[$currentKey] = [];
-            }
+			//
             $currentValue =& $currentValue[$currentKey];
-        }
+        };
 		//
-        if (!isset($currentValue[$endKey]))
-		{
+        if (! isset($currentValue[$endKey]))
             $currentValue[$endKey] = [];
-        }
 		//
-        if (!is_array($currentValue[$endKey]))
-		{
-            // Promote this key to an array.
-            // TODO: Is this really what we want to do?
+        if (! is_array($currentValue[$endKey]))
             $currentValue[$endKey] = [$currentValue[$endKey]];
-        }
 		//
         $currentValue[$endKey][] = $value;
     }
@@ -105,14 +104,12 @@ implements DataInterface, ArrayAccess
         foreach ($keyPath as $currentKey)
 		{
             if (!isset($currentValue[$currentKey]))
-			{
                 $currentValue[$currentKey] = [];
-            }
-            if (!is_array($currentValue[$currentKey])) {
+            if (!is_array($currentValue[$currentKey]))
                 _error(sprintf('Key path "%s" within "%s" cannot be indexed into (is not an array)', $currentKey, self::formatPath($key)));
-            }
-            $currentValue =& $currentValue[$currentKey];
-        }
+            //
+			$currentValue =& $currentValue[$currentKey];
+        };
         $currentValue[$endKey] = $value;
     }
 
@@ -127,12 +124,9 @@ implements DataInterface, ArrayAccess
         foreach ($keyPath as $currentKey)
 		{
             if (!isset($currentValue[$currentKey]))
-			{
                 return;
-            }
             $currentValue =& $currentValue[$currentKey];
-        }
-        unset($currentValue[$endKey]);
+        };	unset($currentValue[$endKey]);
     }
 
     /**
@@ -151,14 +145,11 @@ implements DataInterface, ArrayAccess
             if (!is_array($currentValue) || !array_key_exists($currentKey, $currentValue))
 			{
                 if ($hasDefault)
-				{
                     return $default;
-                }
                 _error(sprintf('Warrning: No configuration data exists at the given path: "%s"', self::formatPath($keyPath)), 2, true);exit;
             }
             $currentValue = $currentValue[$currentKey];
-        }
-        return $currentValue === null ? $default : $currentValue;
+        };	return $currentValue === null ? $default : $currentValue;
     }
 
     /**
@@ -178,8 +169,7 @@ implements DataInterface, ArrayAccess
                 return false;
             }
             $currentValue = &$currentValue[$currentKey];
-        }
-        return true;
+        };	return true;
     }
 
     /**
@@ -289,7 +279,7 @@ implements DataInterface, ArrayAccess
         if (is_string($path))
 		{
             $path = self::keyToPathArray($path);
-        }
-        return implode(' -> ', $path);
+        }	return \implode(' -> ', $path);
     }
+
 }

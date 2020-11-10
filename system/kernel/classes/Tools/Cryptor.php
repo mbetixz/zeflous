@@ -41,26 +41,53 @@ use PhpAes\Aes;
 
 trait Cryptor
 {
-	private $CrYpToKeY  = "def00000365db9b2f33d077f8a71458a678740d1a1f02303aa65205b17d01387b1cb9dd3215868f6b538f84562f6b0471d5e9c8c0917d85a7469109f31304686ec9b0af7";
-	private $aEsKeY     = ["m1b4e0t4i1x9z9s3", "CBC", "1Z4o0L4D1y9C9k3Z"];
 
+	/**
+	 * secret crypto key
+	 *
+	 * @var string
+	 */
+	private static string $CrYpToKeY  = "def00000365db9b2f33d077f8a71458a678740d1a1f02303aa65205b17d01387b1cb9dd3215868f6b538f84562f6b0471d5e9c8c0917d85a7469109f31304686ec9b0af7";
+
+	/**
+	 * secret crypto key
+	 *
+	 * @var array
+	 */
+	private static array $aEsKeY     = ["m1b4e0t4i1x9z9s3", "CBC", "1Z4o0L4D1y9C9k3Z"];
+
+	/**
+	 * encryption string
+	 *
+	 * @param string {$data}
+	 *
+	 * @return string
+	 */
 	public function encrypt(string $data): string
 	{
-		$aes  = new Aes($this->aEsKeY[0], $this->aEsKeY[1], $this->aEsKeY[2]);
-		$key  = Key::loadFromAsciiSafeString($this->CrYpToKeY);
+		$aes  = new Aes(self::$aEsKeY[0], self::$aEsKeY[1], self::$aEsKeY[2]);
+		$key  = Key::loadFromAsciiSafeString(self::$CrYpToKeY);
 		$data = Crypto::encrypt($data, $key);
 		$data = $aes->encrypt($data);
 		$data = base64_encode($data);
 		return $data;
 	}
 
+	/**
+	 * decryption string
+	 *
+	 * @param string {$data}
+	 *
+	 * @return string
+	 */
 	public function decrypt(string $data): string
 	{
-		$aes  = new Aes($this->aEsKeY[0], $this->aEsKeY[1], $this->aEsKeY[2]);
-		$key  = Key::loadFromAsciiSafeString($this->CrYpToKeY);
+		$aes  = new Aes(self::$aEsKeY[0], self::$aEsKeY[1], self::$aEsKeY[2]);
+		$key  = Key::loadFromAsciiSafeString(self::$CrYpToKeY);
 		$data = base64_decode($data);
 		$data = $aes->decrypt($data);
 		$data = Crypto::decrypt($data, $key);
 		return $data;
 	}
+
 }

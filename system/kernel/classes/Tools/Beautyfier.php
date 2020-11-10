@@ -37,43 +37,58 @@ trait Beautyfier
 {
 
 	/**
-	* default is 4 space, you can use tab \t
-	**/
+	 * default is 4 space, you can use tab \t
+	 *
+	 * @var string
+	 */
 	private static string $BeautySpace       = "    ";
 
 	/**
-	* Space {$BeautySpace} count for every sub array
-	**/
+	 * Space {$BeautySpace} count for every sub array
+	 *
+	 * @var int
+	 */
 	private static int    $BeautySpaceCount  = 1;
 
 	/**
-	* Bracket style you can use "array (" like var_export
-	**/
+	 * Bracket style you can use "array (" like var_export
+	 *
+	 * @var string
+	 */
 	private static string $BeautyTagOpen     = "[";
 
 	/**
-	* array tag close, tag close type must be same as above
-	**/
+	 * array tag close, tag close type must be same as above
+	 *
+	 * @var string
+	 */
 	private static string $BeautyTagClose    = "]";
 
 	/**
-	* Character enconding
-	**/
+	 *
+	 * Character enconding
+	 *
+	 * @var string
+	 */
 	private static string $BeautyEncoding    = "UTF-8";
 
 	/**
-	* @param  int
-	* @return string
-	**/
+	 *
+	 * @param  int {$count}
+	 *
+	 * @return string
+	 */
 	private static function BeautySpacer(int $count): string
 	{
 		return str_repeat(self::$BeautySpace, $count);
 	}
 
 	/**
-	* @param  array
-	* @return string
-	**/
+	 *
+	 * @param  array {$vars}
+	 *
+	 * @return string
+	 */
 	private static function Beautyfier(array $vars): string
 	{
 		$vars    = (array) $vars;
@@ -94,9 +109,11 @@ trait Beautyfier
 	}
 
 	/**
-	* @param  mixed
-	* @return mixed
-	**/
+	 *
+	 * @param  mixed
+	 *
+	 * @return mixed
+	 */
 	private static function BeautyCheck($value)
 	{
 		if (is_bool($value))
@@ -108,9 +125,12 @@ trait Beautyfier
 	}
 
 	/**
-	* @param  array, int
-	* @return string
-	**/
+	 *
+	 * @param array {$vars}
+	 * @param int {$count}
+	 *
+	 * @return string
+	 */
 	private static function BeautyArray(array $vars, int $count): string
 	{
 		$result  = /** array **/'' . "\r\n";
@@ -127,4 +147,5 @@ trait Beautyfier
 		$result .= self::BeautySpacer($count) . self::$BeautyTagClose . ",";
 		return $result;
 	}
+
 }

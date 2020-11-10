@@ -41,8 +41,15 @@ use System\{
 
 class Main
 {
-	public function page($type = 404)
+	/**
+	 * Display Error page
+	 * @param int {$type}
+	 */
+	public function page(int $type = 404)
 	{
+		/**
+		 * import error language file
+		 */
 		$lng = App::get(Languages::class)->import('error_pages', true);
 		switch($type)
 		{
@@ -61,8 +68,7 @@ class Main
 				$code    = 404;
 				$message = $lng['error 404 message'];
 				break;
-		}
-		$return = App::get(View::class)
+		};	$return = App::get(View::class)
 			->extends()
 			->render('system:ERROR-PAGE', [
 				'page_title'    => $title,

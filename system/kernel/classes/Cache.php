@@ -42,16 +42,24 @@ use System\Tools\{
 class Cache
 {
 	use
-	/** @trait System\Tools\IncludeFile **/
+	/**
+	 * @trait System\Tools\IncludeFile
+	 */
 	IncludeFile,
-	/** @trait System\Tools\Loader **/
+	/**
+	 * @trait System\Tools\Loader
+	 */
 	Loader,
-	/** @trait System\Tools\Beautyfer **/
+	/**
+	 * @trait System\Tools\Beautyfer
+	 */
 	Beautyfier;
 
 	/**
-	* Comments template for cache file
-	**/
+	 * Comments template for cache file
+	 *
+	 * @var array
+	 */
 	private static $cache_template = array(
 		'',
 		'/**',
@@ -65,6 +73,13 @@ class Cache
 		'**/',
 	);
 
+	/**
+	 * Create cache file
+	 *
+	 * @param array {$param}
+	 *
+	 * @return bool
+	 */
 	public function create(array $params)
 	{
 		if (
@@ -115,7 +130,8 @@ class Cache
 					_error("Warning: failed to create cache file for {$cache_name}");
 				else
 					return true;
-			} else {
+			} else
+			{
 				_error("Error: Cache directory permission denied!!");
 			}
 		} else

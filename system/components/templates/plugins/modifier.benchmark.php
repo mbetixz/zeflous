@@ -28,7 +28,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 function smarty_modifier_benchmark(bool $time = false)
 {
 	if ($time !== false)
-		return (round(microtime(true) - APP_START, 3) + 0.3).'s';
+		return (round(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], 3) + 0.3).'s';
 	else
 	if (APP_DEBUG !== false)
 	{

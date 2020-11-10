@@ -41,8 +41,19 @@ use System\Tools\{
 
 class Tools
 {
+
 	use
-		IncludeFile,
-		Loader,
-		Cryptor;
+	/**
+	 * @trait System\Tools\IncludeFile
+	 */
+	IncludeFile,
+	/**
+	 * @trait System\Tools\Loader
+	 */
+	Loader,
+	/**
+	 * @trait System\Tools\Cryptor
+	 */
+	Cryptor;
+
 }

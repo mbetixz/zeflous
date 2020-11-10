@@ -35,8 +35,15 @@ namespace System\Tools;
 
 trait Loader
 {
+	/** @trait System\Tools\IncludeFile **/
 	use IncludeFile;
 
+	/**
+	 *
+	 * @param string {$file}
+	 *
+	 * @return mixed|bool
+	 */
 	public function LoadFile(string $file)
 	{
 		if (file_exists($file))
@@ -45,13 +52,29 @@ trait Loader
 			return false;
 	}
 
+	/**
+	 * Load config file
+	 *
+	 * @param string {$name}
+	 * @param string {$path}
+	 *
+	 * @return array|bool
+	 */
 	public function LoadConfig(string $name, string $path = APP_CONFIG_PATH . 'system' . DS)
 	{
 		$prefix = ".config.php";
 		return $this->LoadFile($path . $name . $prefix);
 	}
 
-	public function LoadConfigFromDir(string $prefix, array $path = [])
+	/**
+	 * load nultiple config file
+	 *
+	 * @param string {$prefix}
+	 * @param array {$path}
+	 *
+	 * @return array
+	 */
+	public function LoadConfigFromDir(string $prefix, array $path = []): array
 	{
 		$prefix = trim(rtrim($prefix, ".config.php")) . ".config.php";
 		if (empty($path))
@@ -82,6 +105,14 @@ trait Loader
 		return $config;
 	}
 
+	/**
+	 * Load cache file
+	 *
+	 * @param string {$name}
+	 * @param string {$path}
+	 *
+	 * @return array|bool
+	 */
 	public function LoadCache(string $name, string $path = APP_CACHE_PATH)
 	{
 		$prefix = '.cache.php';

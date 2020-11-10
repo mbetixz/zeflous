@@ -65,23 +65,23 @@ class Util
      */
     public static function mergeAssocArray($to, $from, int $mode = DataInterface::REPLACE)
     {
-        if ($mode === DataInterface::MERGE && self::isList($to) && self::isList($from)) {
+        if ($mode === DataInterface::MERGE && self::isList($to) && self::isList($from))
+		{
             return array_merge($to, $from);
         }
-
-        if (is_array($from) && is_array($to)) {
-            foreach ($from as $k => $v) {
-                if (!isset($to[$k])) {
+        if (is_array($from) && is_array($to))
+		{
+            foreach ($from as $k => $v)
+			{
+                if (!isset($to[$k]))
+				{
                     $to[$k] = $v;
-                } else {
+                } else
+				{
                     $to[$k] = self::mergeAssocArray($to[$k], $v, $mode);
                 }
-            }
-
-            return $to;
-        }
-
-        return $mode === DataInterface::PRESERVE ? $to : $from;
+            };	return $to;
+        }	return $mode === DataInterface::PRESERVE ? $to : $from;
     }
 
     /**
