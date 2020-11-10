@@ -67,29 +67,32 @@ class Config
 	{
 		$this->tools = $tools;
 		$this->cache = $cache;
-		$config = static function($self)
+		$conf        = $this->tools->LoadFile(APP_CONFIG_PATH . 'system' . DS . 'cache.config.php');
+		$config = static function($self, $conf)
 		{
-			if ($cache  = $self->cache->LoadCache('configs', APP_CACHE_PATH . 'configs'))
-				$config = $cache;
-			else
+			$cache_file = APP_CACHE_PATH . 'configs' . DS . 'configs.cache.php';
+			if (
+				(file_exists($cache_file)) &&
+				(isset($conf['configs']['enable'])) &&
+				($conf['configs']['enable'] != false) &&
+				(filemtime($cache_file) + $conf['configs']['time']) > time()
+			) {
+				$config = $self->tools->IncludeFile($cache_file);
+			} else
 			{
 				$config = $self->tools->LoadConfigFromDir("*", [APP_CONFIG_PATH . 'system' . DS]);
-				if (isset($config['cache']['configs']))
+				if (isset($conf['configs']['enable']) && $conf['configs']['enable'] != false)
 				{
-					$cache = $config['cache'];
-					if (isset($cache['configs']['enable']) && $cache['configs']['enable'] != false)
-					{
-						$self->cache->create([
-							"name" => "configs",
-							"path" => APP_CACHE_PATH . 'configs',
-							"vars" => $config,
-							"time" => (isset($cache['configs']['time']) ? (int)$cache['configs']['time'] : false),
-							"beautyfier" => ((isset($cache['beautyfier']) && ($cache['beautyfier'] != false)) ?? false),
-						]);
-					}
+					$self->cache->create([
+						"name" => "configs",
+						"path" => APP_CACHE_PATH . 'configs',
+						"vars" => $config,
+						"time" => (isset($conf['configs']['time']) ? (int)$conf['configs']['time'] : false),
+						"beautyfier" => ((isset($conf['beautyfier']) && ($conf['beautyfier'] != false)) ?? false),
+					]);
 				}
 			}	return $config;
-		};	$this->config = new Data($config($this));
+		};	$this->config = new Data($config($this, $conf));
 	}
 
 	/**

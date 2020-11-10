@@ -36,7 +36,6 @@ use System\{
 	Config
 };
 
-
 /**
  * Config helper
  * config('parent.section.child');

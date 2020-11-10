@@ -52,7 +52,7 @@ trait Parser
 			if (preg_match("/(-info)/", $key))
 				$newRoutes[$key] = $val;
 			/** module pathname as index **/
-			if (is_string($key))
+			elseif (is_string($key))
 			{
 				$newRoutes = array_merge(
 					$newRoutes,

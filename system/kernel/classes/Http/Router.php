@@ -75,9 +75,14 @@ class Router
 		$routes  = static function($self)
 		{
 			/** search cache if exists **/
-			if ($cache = App::get(Config::class)->cache->LoadCache('routes', APP_CACHE_PATH . 'configs'))
-				$routes = $cache;
-			else
+			$cache_file = APP_CACHE_PATH . 'configs' . DS . 'routes.cache.php';
+			if (
+				(file_exists($cache_file)) &&
+				(config('cache.routes.enable') != false) &&
+				(filemtime($cache_file) + config('cache.routes.time')) > time()
+			) {
+				$routes = App::get(Config::class)->tools->IncludeFile($cache_file);
+			} else
 			{
 				/** load all routes.config.php from modules directory **/
 				$routes = App::get(Config::class)->tools->LoadConfigFromDir('routes');

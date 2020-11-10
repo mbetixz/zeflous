@@ -43,7 +43,7 @@ trait IncludeFile
 	 *
 	 * @return array
 	 */
-	protected function IncludeFile(string $file): array
+	public function IncludeFile(string $file): array
 	{
 		if (is_file($file))
 			return (array) include $file;

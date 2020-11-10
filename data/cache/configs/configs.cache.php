@@ -1,11 +1,11 @@
 <?php
 
 /**
-** APP Version  : 1.0.12
+** APP Version  : 1.0.01
 **
 ** Filename     : configs.cache.php
-** Created Time : Monday, 09 November 2020 12:47:04
-** Expires Time : Wednesday, 09 December 2020 12:47:04
+** Created Time : Tuesday, 10 November 2020 05:56:15
+** Expires Time : Thursday, 10 December 2020 05:56:15
 ** Beautyfier   : ENABLE
 **
 **/

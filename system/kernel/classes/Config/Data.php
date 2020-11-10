@@ -145,8 +145,10 @@ implements DataInterface, ArrayAccess
             if (!is_array($currentValue) || !array_key_exists($currentKey, $currentValue))
 			{
                 if ($hasDefault)
+				{
                     return $default;
-                _error(sprintf('Warrning: No configuration data exists at the given path: "%s"', self::formatPath($keyPath)), 2, true);exit;
+				}
+				_error(sprintf('Warrning: No configuration data exists at the given path: "%s"', self::formatPath($keyPath)), 2, true);exit;
             }
             $currentValue = $currentValue[$currentKey];
         };	return $currentValue === null ? $default : $currentValue;

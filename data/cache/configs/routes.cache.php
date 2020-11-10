@@ -1,11 +1,11 @@
 <?php
 
 /**
-** APP Version  : 1.0.12
+** APP Version  : 1.0.01
 **
 ** Filename     : routes.cache.php
-** Created Time : Monday, 09 November 2020 08:56:20
-** Expires Time : Monday, 16 November 2020 08:56:20
+** Created Time : Tuesday, 10 November 2020 05:56:15
+** Expires Time : Tuesday, 17 November 2020 05:56:15
 ** Beautyfier   : ENABLE
 **
 **/

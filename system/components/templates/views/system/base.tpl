@@ -10,6 +10,9 @@
 {capture name=leftSidebar}
 	{include file="system/left-sidebar.tpl"}
 {/capture}
+{capture name=rightSidebar}
+Right Sidebar
+{/capture}
 {capture name=dropdownNotifications}
 <ul>
 	<li>Notifications</li>

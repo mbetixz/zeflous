@@ -118,7 +118,8 @@ trait Loader
 		$prefix = '.cache.php';
 		$name   = trim(str_replace(":", DS, $name));
 		$path   = rtrim($path, DS) . DS;
-		return $this->LoadFile($path . $name . $prefix);
+		$file   = $path . $name . $prefix;
+		return $this->LoadFile($file);
 	}
 
 }
