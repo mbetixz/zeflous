@@ -33,7 +33,8 @@
  */
 use System\{
 	App,
-	Config
+	Config,
+	Languages
 };
 
 /**
@@ -48,6 +49,15 @@ function config(string $key, $value=null)
 		return App::get(Config::class)()->get($key);
 	else
 		return App::get(Config::class)()->set($key, $value);
+}
+
+/**
+ * Tranlate language string
+ */
+function lng(string $str)
+{
+	$str = filter_var($str, FILTER_SANITIZE_STRING);
+	return App::get(Languages::class)($str);
 }
 
 /**

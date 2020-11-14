@@ -1,33 +1,33 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-11-12 16:44:24
-  from '/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/views/system/ERROR-PAGE.tpl' */
+/* Smarty version 3.1.36, created on 2020-11-14 10:38:21
+  from '/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/modules/auth/components/templates/views/register.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5fad666878bea4_51240498',
+  'unifunc' => 'content_5fafb39d46dc26_71833891',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'd9e5b39f729862d984ab1338920c8aab346c1d62' => 
+    '1244436ba69c1dd037250554fe0ee33c4066ebd1' => 
     array (
-      0 => '/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/views/system/ERROR-PAGE.tpl',
-      1 => 1604825968,
+      0 => '/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/modules/auth/components/templates/views/register.tpl',
+      1 => 1605350300,
       2 => 'extends',
     ),
-    '019cf68621c95aed3c664adb36918e4650ea4601' => 
+    'f3ec379c45974ce2e5a979c5b39167b8d471f442' => 
     array (
-      0 => '/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/views/system/ERROR-PAGE.tpl',
-      1 => 1604825968,
+      0 => '/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/modules/auth/components/templates/views/register.tpl',
+      1 => 1605350300,
       2 => 'file',
     ),
-    'cf188ccaf79d2715eaa4884e0268b2cd68412368' => 
+    'af5824adbe7477fe72f33ca959403530b7d87eaa' => 
     array (
       0 => '/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/views/system/base.tpl',
       1 => 1605022984,
       2 => 'file',
     ),
-    'd08ce3952c5fdaa7f76dd4244d281a102dedc5b8' => 
+    '97c4ce347a43a2c18ac2d27263166caae562e1f3' => 
     array (
       0 => '/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/views/system/left-sidebar.tpl',
       1 => 1604825968,
@@ -36,71 +36,81 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'includes' => 
   array (
-    'file:system/ERROR-PAGE.tpl' => 1,
+    'file:register.tpl' => 1,
     'file:system/base.tpl' => 1,
     'file:system/left-sidebar.tpl' => 1,
   ),
 ),false)) {
-function content_5fad666878bea4_51240498 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fafb39d46dc26_71833891 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
-$_smarty_tpl->_subTemplateRender('file:system/ERROR-PAGE.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false, '019cf68621c95aed3c664adb36918e4650ea4601', 'content_5fad66686ca0b1_68038936');
+$_smarty_tpl->_subTemplateRender('file:register.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false, 'f3ec379c45974ce2e5a979c5b39167b8d471f442', 'content_5fafb39d3229f5_79235642');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl);
-$_smarty_tpl->_subTemplateRender('file:system/base.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false, 'cf188ccaf79d2715eaa4884e0268b2cd68412368', 'content_5fad66686f73d7_81901365');
+$_smarty_tpl->_subTemplateRender('file:system/base.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false, 'af5824adbe7477fe72f33ca959403530b7d87eaa', 'content_5fafb39d3d9585_10901066');
 }
-/* Start inline template "/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/views/system/ERROR-PAGE.tpl" =============================*/
-function content_5fad66686ca0b1_68038936 (Smarty_Internal_Template $_smarty_tpl) {
+/* Start inline template "/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/modules/auth/components/templates/views/register.tpl" =============================*/
+function content_5fafb39d3229f5_79235642 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9373887575fad66686d9417_33236697', 'title');
-?>
-
-<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4251427035fad66686f0124_01240947', 'body');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19338862515fafb39d32e3f3_37728866', 'body');
 }
-/* {block 'title'} */
-class Block_9373887575fad66686d9417_33236697 extends Smarty_Internal_Block
-{
-public $subBlocks = array (
-  'title' => 
-  array (
-    0 => 'Block_9373887575fad66686d9417_33236697',
-  ),
-);
-public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
-?>
-
-	<?php echo $_smarty_tpl->tpl_vars['page_title']->value;?>
-
-<?php
-}
-}
-/* {/block 'title'} */
 /* {block 'body'} */
-class Block_4251427035fad66686f0124_01240947 extends Smarty_Internal_Block
+class Block_19338862515fafb39d32e3f3_37728866 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body' => 
   array (
-    0 => 'Block_4251427035fad66686f0124_01240947',
+    0 => 'Block_19338862515fafb39d32e3f3_37728866',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/plugins/function.translate.php','function'=>'smarty_function_translate',),1=>array('file'=>'/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/plugins/function.HTMLinput.php','function'=>'smarty_function_HTMLinput',),2=>array('file'=>'/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/plugins/function.HTMLselect.php','function'=>'smarty_function_HTMLselect',),3=>array('file'=>'/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/plugins/function.HTMLcheckbox.php','function'=>'smarty_function_HTMLcheckbox',),));
 ?>
 
-<section name="error-content" align="center" class="error-page">
-	<h1><?php echo $_smarty_tpl->tpl_vars['error_code']->value;?>
-</h1>
-	<p><?php echo $_smarty_tpl->tpl_vars['error_message']->value;?>
-</p>
+<?php echo smarty_function_translate(array('import'=>'register','set'=>true),$_smarty_tpl);?>
+
+<section layout-name=register>
+	<form name=register method=post>
+		<ul>
+			<li>
+				<?php echo smarty_function_HTMLinput(array('label'=>lng('Name'),'name'=>'name','type'=>'text','minlength'=>3,'maxlength'=>15,'desc'=>lng("Min:3 &amp; Max:15 Characters"),'required'=>'required'),$_smarty_tpl);?>
+
+			</li>
+			<li>
+				<?php echo smarty_function_HTMLinput(array('label'=>lng('Fullname'),'name'=>'fullname','type'=>'text','minlength'=>3,'maxlength'=>30,'desc'=>lng("Min:3 &amp; Max:30 Characters"),'required'=>'required'),$_smarty_tpl);?>
+
+			</li>
+			<li>
+				<?php echo smarty_function_HTMLinput(array('label'=>lng('Email Address'),'name'=>'email','type'=>'text','minlength'=>6,'maxlength'=>30,'desc'=>lng("Please enter valid email address"),'required'=>'required'),$_smarty_tpl);?>
+
+			</li>
+			<li>
+				<?php echo smarty_function_HTMLinput(array('label'=>lng('Password'),'name'=>'password','type'=>'password','minlength'=>8,'maxlength'=>30,'desc'=>lng("Please enter strongest password"),'required'=>'required'),$_smarty_tpl);?>
+
+			</li>
+			<li>
+				<?php echo smarty_function_HTMLinput(array('label'=>lng('Retype Password'),'name'=>'repassword','type'=>'password','minlength'=>8,'maxlength'=>30,'desc'=>lng("Please confirm password"),'required'=>'required'),$_smarty_tpl);?>
+
+			</li>
+			<li>
+				<?php echo smarty_function_HTMLselect(array('label'=>lng('Gender'),'name'=>'gender','data'=>array(''=>lng('Please select'),'m'=>lng('Male'),'w'=>lng('Female')),'desc'=>lng("Please enter strongest password"),'required'=>'required'),$_smarty_tpl);?>
+
+			</li>
+			<li>
+				<?php echo smarty_function_HTMLcheckbox(array('label'=>lng('Term &amp; Services'),'name'=>'term','desc'=>lng("By clicking submit button, you agree with term &amp; service this site."),'required'=>'required'),$_smarty_tpl);?>
+
+			</li>
+			<li></li>
+		</ul>
+	</form>
 </section>
 <?php
 }
 }
 /* {/block 'body'} */
-/* End inline template "/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/views/system/ERROR-PAGE.tpl" =============================*/
+/* End inline template "/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/modules/auth/components/templates/views/register.tpl" =============================*/
 /* Start inline template "/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/views/system/left-sidebar.tpl" =============================*/
-function content_5fad6668712826_82428000 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fafb39d3f2ae5_82497011 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, 'zeflousLogo', null, null);?>
 <span class="zi logo">
 	<span class="path1"></span>
@@ -180,7 +190,7 @@ $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, 'zeflousLogo', null, nul
 }
 /* End inline template "/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/views/system/left-sidebar.tpl" =============================*/
 /* Start inline template "/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/views/system/base.tpl" =============================*/
-function content_5fad66686f73d7_81901365 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fafb39d3d9585_10901066 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/storage/9F59-0903/Android/data/com.termux/files/mbetixz/project/Zeflous/system/components/templates/plugins/modifier.benchmark.php','function'=>'smarty_modifier_benchmark',),));
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
@@ -195,7 +205,7 @@ $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, 'notifyForums', null, nu
 <?php $_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);
 $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, 'leftSidebar', null, null);?>
 	<?php
-$_smarty_tpl->_subTemplateRender("file:system/left-sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false, 'd08ce3952c5fdaa7f76dd4244d281a102dedc5b8', 'content_5fad6668712826_82428000');
+$_smarty_tpl->_subTemplateRender("file:system/left-sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false, '97c4ce347a43a2c18ac2d27263166caae562e1f3', 'content_5fafb39d3f2ae5_82497011');
 $_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);
 $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, 'rightSidebar', null, null);?>
 Right Sidebar
@@ -244,11 +254,11 @@ $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, 'dropdownForums', null, 
 <meta content=yes name=apple-mobile-web-app-capable>
 <link rel=stylesheet href=/assets/styles/themes/dark/main.css>
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_898553735fad6668737964_65911891', 'css');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4246193075fafb39d41c7f0_78245702', 'css');
 ?>
 
 <title><?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9297404425fad666873be70_53295008', 'title');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8383870695fafb39d420dc5_76824558', 'title');
 ?>
 </title>
 </head>
@@ -304,7 +314,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9297404425fad66687
 			</ul>
 		</header>
 		<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9955637215fad6668777568_61357781', 'body');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8835533335fafb39d459441_22558433', 'body');
 ?>
 
 	</section>
@@ -320,7 +330,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9955637215fad66687
  src=/assets/styles/js/default.main.js><?php echo '</script'; ?>
 >
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14103953475fad6668780b49_03298131', 'javascript');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9509621315fafb39d462883_99792572', 'javascript');
 ?>
 
 <?php echo smarty_modifier_benchmark(false);?>
@@ -329,12 +339,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14103953475fad6668
 </html><?php
 }
 /* {block 'css'} */
-class Block_898553735fad6668737964_65911891 extends Smarty_Internal_Block
+class Block_4246193075fafb39d41c7f0_78245702 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'css' => 
   array (
-    0 => 'Block_898553735fad6668737964_65911891',
+    0 => 'Block_4246193075fafb39d41c7f0_78245702',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -342,12 +352,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'css'} */
 /* {block 'title'} */
-class Block_9297404425fad666873be70_53295008 extends Smarty_Internal_Block
+class Block_8383870695fafb39d420dc5_76824558 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'title' => 
   array (
-    0 => 'Block_9297404425fad666873be70_53295008',
+    0 => 'Block_8383870695fafb39d420dc5_76824558',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -357,12 +367,12 @@ Zeflous CMS<?php
 }
 /* {/block 'title'} */
 /* {block 'body'} */
-class Block_9955637215fad6668777568_61357781 extends Smarty_Internal_Block
+class Block_8835533335fafb39d459441_22558433 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body' => 
   array (
-    0 => 'Block_9955637215fad6668777568_61357781',
+    0 => 'Block_8835533335fafb39d459441_22558433',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -370,12 +380,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'body'} */
 /* {block 'javascript'} */
-class Block_14103953475fad6668780b49_03298131 extends Smarty_Internal_Block
+class Block_9509621315fafb39d462883_99792572 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'javascript' => 
   array (
-    0 => 'Block_14103953475fad6668780b49_03298131',
+    0 => 'Block_9509621315fafb39d462883_99792572',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

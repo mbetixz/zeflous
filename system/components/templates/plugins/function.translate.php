@@ -90,9 +90,9 @@ function smarty_function_translate($params, $template)
 			(is_bool($params['set']) || is_int($params['set'])) &&
 			isset($params['import']) && is_string($params['import'])
 		)
-			$lang->set($params['import']);
+			$lang->domain($params['import']);
 		elseif (is_string($params['set']))
-			$lang->set($params['set']);
+			$lang->domain($params['set']);
 	}
 	/**
 	* assign languages

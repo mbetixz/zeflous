@@ -40,13 +40,12 @@ use System\{
 
 class Home
 {
+
 	public function index()
 	{
 		return App::get(View::class)
 			->extends()
-			->render(
-				'index',
-				[]
-			);
+				->render('index', []);
 	}
+
 }

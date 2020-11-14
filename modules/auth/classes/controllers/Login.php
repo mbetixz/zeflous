@@ -31,15 +31,26 @@
  * @version    See Version Text
  * @license    http://opensource.org/licenses/MIT MIT License
  */
+namespace Controller\Auth;
 
-$head =
-	/** Friendly view for mobile user like me haha **/
-	'<meta name=viewport content="width=device-width">' .
-	'<style type=text/css>*,*:before,*:after,html{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-rendering: optimizeLegibility;font-kerning: auto;}html{background-color:#121416;color:red;text-shadow:0 1px 0 #2c0303;padding:10px 5px;font-size:12px; /** change this if need more bigger **/}hr{border-color:#21282e;}._{position:fixed;top:0;left:0;right:0;z-index:999999;display:-webkit-flex;display:-ms-flex;display:flex;width:100%;max-height:100%;max-width:calc(100%-2px);padding:5px;overflow-x:hidden;overflow-y:auto;flex-direction:row;flex-wrap:wrap;}.__{display:block;-webkit-flex:0 0 100%;-ms-flex:0 0 100%;flex:0 0 100%;width:100%;align-self:center;background-color:#202427;border:1px solid #2f3a44;padding:10px;border-radius:4px;margin:5px auto;}@media(min-width:890px){.__{-webkit-flex:0 0 32%;-ms-flex:0 0 32%;flex:0 0 32%;width:32%;}}
-.___{position:relative;border:1px solid transparent;display:block;max-width:100%;z-index:1;font-family:courier;color:#74a0da;padding:15px;display:block;overflow:auto}
-</style>' .
-	'<div class=_>' .
-	'';
-$end = ''; /** do not closing html tag or will break this style **/
+use System\{
+	App,
+	View
+};
 
-return [$head, $end];
+class Login
+{
+
+	public function __construct()
+	{
+
+	}
+
+	public function index()
+	{
+		return App::get(View::class)
+			->extends()
+			->render('login', []);
+	}
+
+}

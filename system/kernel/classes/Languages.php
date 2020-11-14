@@ -81,7 +81,13 @@ class Languages
 	 *
 	 * @var string
 	 */
-	$ext_dir;
+	$ext_dir,
+	/**
+	 * current domain
+	 *
+	 * @var string
+	 */
+	$domain;
 
 	/**
 	 * Constructor
@@ -101,6 +107,65 @@ class Languages
 		$this->ext = config('languages.ext');
 		if (empty($this->data))
 			$this->import(config('languages.name'));
+	}
+
+	/**
+	 * Translate / Invoke class
+	 *
+	 * @param string|null {$data}
+	 *
+	 * @return string|object
+	 */
+	public function __invoke(string $data = null)
+	{
+		if (null === $data)
+			return $this;
+		else
+			return $this->translate($data);
+	}
+
+	/**
+	 * Tranlsate String
+	 *
+	 * @param string {$string}
+	 *
+	 * @return string
+	 */
+	public function translate(string $string, string $name = null, string $iso = null)
+	{
+		static $fallback = true;
+		$string = filter_var($string, FILTER_SANITIZE_STRING);
+		if (null === $name)
+		{
+			$name = config('languages.name');
+			$fallback = false;
+		}
+		$name = (null !== $this->domain) ? $this->domain : $name;
+		if (null === $iso)
+			$iso = $this->iso;
+		if (isset($this->data[$name]['data'][$string]))
+			return $this->data[$name]['data'][$string];
+		/**
+		 * @fallback
+		 */
+		elseif ($fallback == true && isset($this->data[config('languages.name')]['data'][$string]))
+			return $this->data[config('languages.name')]['data'][$string];
+		elseif (config('languages.show missing') != false)
+			return "[!:{$string}]";
+		else
+			return $string;
+	}
+
+	/**
+	 * Set Domain
+	 *
+	 * @param string {$domain}
+	 *
+	 * @return bool
+	 */
+	public function domain(string $domain)
+	{
+		return $this->domain = $domain;
 	}
 
 	/**
