@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
+    'pretty_version' => '1.0.0+no-version-set',
+    'version' => '1.0.0.0',
     'aliases' => 
     array (
     ),
-    'reference' => 'e2da3cf811633500dd5dbc00ecbb3cdc8c0c789f',
+    'reference' => NULL,
     'name' => 'mbetixz/zeflous',
   ),
   'versions' => 
@@ -31,12 +31,12 @@
     ),
     'egulias/email-validator' => 
     array (
-      'pretty_version' => '2.1.23',
-      'version' => '2.1.23.0',
+      'pretty_version' => '2.1.24',
+      'version' => '2.1.24.0',
       'aliases' => 
       array (
       ),
-      'reference' => '5fa792ad1853ae2bc60528dd3e5cbf4542d3c1df',
+      'reference' => 'ca90a3291eee1538cd48ff25163240695bd95448',
     ),
     'guzzlehttp/psr7' => 
     array (
@@ -49,12 +49,12 @@
     ),
     'laminas/laminas-httphandlerrunner' => 
     array (
-      'pretty_version' => '1.2.0',
-      'version' => '1.2.0.0',
+      'pretty_version' => '1.3.0',
+      'version' => '1.3.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'e1a5dad040e0043135e8095ee27d1fbf6fb640e1',
+      'reference' => 'e8f850bd12cb82b268ff235fe74b2df906e8bfe8',
     ),
     'laminas/laminas-zendframework-bridge' => 
     array (
@@ -67,12 +67,12 @@
     ),
     'mbetixz/zeflous' => 
     array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
+      'pretty_version' => '1.0.0+no-version-set',
+      'version' => '1.0.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'e2da3cf811633500dd5dbc00ecbb3cdc8c0c789f',
+      'reference' => NULL,
     ),
     'paragonie/random_compat' => 
     array (
@@ -173,12 +173,12 @@
     ),
     'symfony/css-selector' => 
     array (
-      'pretty_version' => 'v5.1.8',
-      'version' => '5.1.8.0',
+      'pretty_version' => 'v5.2.0',
+      'version' => '5.2.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '6cbebda22ffc0d4bb8fea0c1311c2ca54c4c8fa0',
+      'reference' => 'b8d8eb06b0942e84a69e7acebc3e9c1e6e6e7256',
     ),
     'symfony/polyfill-ctype' => 
     array (
@@ -272,12 +272,12 @@
     ),
     'voku/simple_html_dom' => 
     array (
-      'pretty_version' => '4.7.25',
-      'version' => '4.7.25.0',
+      'pretty_version' => '4.7.28',
+      'version' => '4.7.28.0',
       'aliases' => 
       array (
       ),
-      'reference' => '958759a0e1523bd90c90085f0d5aba008570e084',
+      'reference' => '78d5894c7f0facfb4fb6369af15b1a87baea958c',
     ),
     'webmozart/assert' => 
     array (

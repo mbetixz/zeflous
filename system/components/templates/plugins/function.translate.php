@@ -115,4 +115,5 @@ function smarty_function_translate($params, $template)
 		$result = sprintf($result, $params['sprintf']);
 
 	return $result;
+}	return $result;
 }

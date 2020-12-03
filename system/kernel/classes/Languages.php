@@ -201,11 +201,12 @@ class Languages
 	 *
 	 * @return array|none
 	 */
-	public function import(string $name, $return = false)
+	public function import(string $name, bool $return = false, string $iso=null, string $dir=null)
 	{
-		if ($lng = App::get(Tools::class)->LoadFile($this->dir . $this->iso . DS . $name . $this->ext))
+		$iso = (null == $iso ? $this->iso : trim(strtolower(substr($iso, 0, 2))));
+		if ($lng = App::get(Tools::class)->LoadFile(($dir !== null ? trim($dir) : $this->dir) . $iso . DS . $name . $this->ext))
 			$data = $lng;
-		elseif ($lng = App::get(Tools::class)->LoadFile($this->ext_dir . $this->iso . DS . $name . $this->ext))
+		elseif ($lng = App::get(Tools::class)->LoadFile(($dir !== null ? trim($dir) : $this->ext_dir) . $iso . DS . $name . $this->ext))
 			$data = $lng;
 		else
 		{
